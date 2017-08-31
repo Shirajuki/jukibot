@@ -49,6 +49,14 @@ bot.on('message', (message) => {
 			value: "Let Moe-sama talk for you"
 		},
 			{
+			name: "qroll",
+			value: "Moe-sama rolls a number from 1-100"
+		},
+			{
+			name: "qdice",
+			value: "Moe-sama rolls a dice"
+		},
+			{
 			name: "qrps rock/paper/scissor",
 			value: "Play RockPaperScissor with Moe-sama"
 		},
@@ -118,7 +126,7 @@ bot.on('message', (message) => {
 			message.channel.send("https://dl.dropboxusercontent.com/s/ceswgl5slp0xuf8/www6.gif ");
 		}
 	}
-	//qgj
+	//qgood
 	if (message.content == (prefix + "good")) {
 		var x = Math.floor((Math.random() * 6) + 1);
 		message.delete().catch(owo=>{}); 
@@ -135,6 +143,18 @@ bot.on('message', (message) => {
 		}else if (x == 6) {
 			message.channel.send("https://dl.dropboxusercontent.com/s/nyojzrqa9e0xp15/good6.gif ");
 		}
+	}
+	//qroll
+	if (message.content == (prefix + "roll")) {
+		var x = Math.floor((Math.random() * 100) + 1);
+		message.delete().catch(owo=>{}); 
+		message.reply(" RNG'ed " + x);
+	}
+	//qdice
+	if (message.content == (prefix + "dice")) {
+		var x = Math.floor((Math.random() * 6) + 1);
+		message.delete().catch(owo=>{}); 
+		message.reply(" rolled a dice and got number " + x);
 	}
 	//qrps rock/paper/scissor
 	var messagesplit = message.content.split(" ")
@@ -214,3 +234,26 @@ bot.on('message', (message) => {
 	message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
 	});
 });	
+const express = require('express');
+const app = express();
+
+// set the port of our application
+// process.env.PORT lets the port be set by Heroku
+const port = process.env.PORT || 5000;
+
+// set the view engine to ejs
+app.set('view engine', 'ejs');
+
+// make express look in the `public` directory for assets (css/js/img)
+app.use(express.static(__dirname + '/public'));
+
+// set the home page route
+app.get('/', (request, response) => {
+    // ejs render automatically looks in the views folder
+    response.render('index');
+});
+
+app.listen(port, () => {
+    // will echo 'Our app is running on http://localhost:5000 when run locally'
+    console.log('Our app is running on http://localhost:' + port);
+});
