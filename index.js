@@ -257,3 +257,6 @@ app.listen(port, () => {
     // will echo 'Our app is running on http://localhost:5000 when run locally'
     console.log('Our app is running on http://localhost:' + port);
 });
+setInterval(() => {
+  http.get('http://jukibot.herokuapp.com');
+}, 900000);
