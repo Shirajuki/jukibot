@@ -37,10 +37,6 @@ bot.on('message', (message) => {
 			value: "Moe-sama uses Laugh"
 		},
 			{
-			name: "qpurge @user n",
-			value: "Moe-sama uses Delete messages"
-		},
-			{
 			name: "qsay text",
 			value: "Let Moe-sama write for you"
 		},
@@ -85,7 +81,7 @@ bot.on('message', (message) => {
 		}else if (x == 4) {
 			message.channel.send("https://dl.dropboxusercontent.com/s/wqwx85elyde1sql/cry4.gif ");
 		}else if (x == 5) {
-			message.channel.send("https://dl.dropboxusercontent.com/s/t025u5hcaxen84d/cry5.jpg ");	
+			message.channel.send("https://dl.dropboxusercontent.com/s/t025u5hcaxen84d/cry5.gif ");	
 		}else if (x == 6) {
 			message.channel.send("https://dl.dropboxusercontent.com/s/981ybvx9fc5dhqk/cry6.gif ");
 		}
@@ -166,16 +162,20 @@ bot.on('message', (message) => {
 				message.reply("Win!");
 			}else if (x == 2) {
 				message.channel.send("Paper");
+				message.reply("Lose!");
 			}else if (x == 3) {
 				message.channel.send("Rock");
+				message.reply("Lose!");
 			}
 		}
 		if (messagesplit[1] == "paper") {
 			var x = Math.floor((Math.random() * 3) + 1);
 			if (x == 1) {
 				message.channel.send("Scissor");
+				message.reply("Lose!");
 			}else if (x == 2) {
 				message.channel.send("Paper");
+				message.reply("Lose!");
 			}else if (x == 3) {
 				message.channel.send("Rock");
 				message.reply("Win!");
@@ -185,11 +185,13 @@ bot.on('message', (message) => {
 			var x = Math.floor((Math.random() * 3) + 1);
 			if (x == 1) {
 				message.channel.send("Scissor");
+				message.reply("Lose!");
 			}else if (x == 2) {
 				message.channel.send("Paper");
 				message.reply("Win!");
 			}else if (x == 3) {
 				message.channel.send("Rock");
+				message.reply("Lose!");
 			}
 		}
 	}
