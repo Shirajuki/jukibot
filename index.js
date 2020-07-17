@@ -1,7 +1,7 @@
 var Discord = require('discord.js');
 var bot = new Discord.Client();
 
-bot.login('MzQyMjE1OTgyMDQ1MjAwMzg0.DRh3UQ.J5XdJ1RAzSXP-GigBUP9E6AVxmc');
+bot.login('REDACTED2020PROLLY2LATENOW');
 
 bot.on('ready', () => {
   console.log('Started!');
